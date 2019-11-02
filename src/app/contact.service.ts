@@ -32,7 +32,7 @@ export class ContactService {
     return this.http.put(this.baseUrl + '/contactdetailsdelete/' + cpId, contact);
   }
   duplicationcheck(cpEmail:String): any {
-    // console.log("inside duplication check: ");
+    // console.log("inside duplication check: "); 
     return this.http.get(this.baseUrl+'/duplication1/'+cpEmail);
   }
 }
