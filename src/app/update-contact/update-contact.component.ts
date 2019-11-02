@@ -45,7 +45,7 @@ export class UpdateContactComponent implements OnInit {
   createForm() {
     this.angForm = this.fb.group({
       cpName: ['', Validators.required ],
-      //  cpVId: ['', Validators.required ],
+      
       cpDepartment: ['', Validators.required ],
       cpEmail: ['', Validators.required ],
       cpPhone: ['', Validators.required ],
@@ -55,26 +55,7 @@ export class UpdateContactComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.submitted = true;
-    // this.contact = new Contact();
-    // this.contact = Object.assign({}, this.contact, this.angForm.value);
-    // this.contact.cpName=this.angForm.controls.cpName.value;
-    // this.contact.cpVId=this.vendor.vId;
-    // this.contact.cpDepartment=this.angForm.controls.cpDepartment.value;
-    // this.contact.cpEmail=this.angForm.controls.cpEmail.value;
-    // this.contact.cpPhone=this.angForm.controls.cpPhone.value;
     
-    // this.contactService.duplicationcheck(this.contact.cpEmail).subscribe(
-    //   data => {
-    //     console.log(data);
-    //     if(data != null){
-    //       console.log("Duplicates");
-    //       this.toastr.error('Duplicated Values', 'Asset Management App');
-    //       this.Vendors = this.contactService.getContactsList();
-    //       this.gotoList();
-    //     }
-       
-      //  },
        this.save();
   }
 
