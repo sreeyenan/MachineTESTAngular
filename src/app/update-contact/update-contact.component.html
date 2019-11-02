@@ -1,0 +1,100 @@
+
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header info-color white-text">
+          <h4 class="title">
+              <i class="fa fa-pencil-alt"></i>Edit Contact</h4>
+            </div>
+<!--Body-->
+<div class="modal-body" [hidden]="submitted" >
+  <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+
+    <!-- Contact name -->
+
+    <div class="form-group">
+      <label for="name"> Contact Name</label>
+      <input type="text" class="form-control" formControlName="cpName" #cpName [(ngModel)]="contact.cpName"/>
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['cpName'].invalid && (angForm.controls['cpName'].dirty || angForm.controls['cpName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['cpName'].errors.required">
+        Contact Name is required.
+      </div>
+    </div>
+                  <!-- Department -->
+
+                  <div class="form-group">
+                        <label for="name">Department</label>
+                        <input type="text" class="form-control" formControlName="cpDepartment" #cpDepartment [(ngModel)]="contact.cpDepartment"/>
+                  
+                      </div>
+                  
+                      <div
+                        *ngIf="angForm.controls['cpDepartment'].invalid && (angForm.controls['cpDepartment'].dirty || angForm.controls['cpDepartment'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="angForm.controls['vService'].errors.required">
+                          Department is required.
+                        </div>
+                      </div>  
+                      
+                      <!-- Email -->
+
+  
+      <div class="form-group">
+            <label for="name">Email</label>
+            <input type="text" class="form-control" formControlName="cpEmail" #cpEmail [(ngModel)]="contact.cpEmail"/>
+      
+          </div>
+          <div
+            *ngIf="angForm.controls['cpEmail'].invalid && (angForm.controls['cpEmail'].dirty || angForm.controls['cpEmail'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['cpEmail'].errors.required">
+                    Email is required.
+            </div>
+          </div>
+
+      <!-- Phone -->
+
+  
+      <div class="form-group">
+            <label for="name">Phone</label>
+            <input type="text" class="form-control" formControlName="cpPhone" #cpPhone [(ngModel)]="contact.cpPhone "/>
+      
+          </div>
+          <div
+            *ngIf="angForm.controls['cpPhone'].invalid && (angForm.controls['cpPhone'].dirty || angForm.controls['cpPhone'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['cpPhone'].errors.required">
+                    Phone Number is required.
+            </div>
+          </div>
+            
+
+
+  
+    <!-- submit -->
+
+
+    <div class="text-center mt-4 mb-2">
+        <button  type="button" (click)="list()" mdbBtn color="black"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+          <mdb-icon fas icon="arrow-circle-left" class="mt-0"></mdb-icon>
+            
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" mdbBtn color="green"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+            <mdb-icon fas icon="plus" class="mt-0"></mdb-icon>
+      
+          </button>
+      </div>
+  
+</form>
+
+</div>

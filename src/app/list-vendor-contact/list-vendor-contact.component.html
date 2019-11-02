@@ -1,0 +1,99 @@
+<mdb-card cascade="true" narrower="true" style="margin-left: 5%;margin-right: 5%;margin-top:2%">
+        <!--Card image-->
+        <div
+            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+    
+            <div>
+    
+            </div>
+            <a href="" class="white-text mx-3">Total Details</a>
+            <div>
+                <!-- <button type="button" (click)="list1()" mdbBtn color="white" outline="true" rounded="true" size="bg"
+                    class="px-2" mdbWavesEffect>
+                    <mdb-icon fas icon="plus-circle" class="mt-0"></mdb-icon>
+                </button> -->
+    
+            </div>
+    
+        </div>
+        <!--/Card image-->
+    
+        <div class="px-4">
+                <div class="col-md-12 mx-auto">
+                        <div class="md-form">
+                          <input type="text" [(ngModel)]="string" class="form-control" id="searchVendorContact" (ngModelChange)="searchVendorContact(string)" mdbInput>
+                          <!-- <button (click)="searchVendorContact(string)" class="btn-info">Search</button> -->
+                          <label for="search">Search</label>
+                        </div>
+                      </div>
+    
+            <div class="table-wrapper">
+                <!--Table-->
+                <table class="mb-0" mdbTable hover="true" >
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                            <!-- <th class="th-lg"><a (click)="sortBy('first')">Id<mdb-icon fas icon="sort"
+                                                    class="ml-1"></mdb-icon></a></th> -->
+                            <!-- <th>Purchase Id</th> -->
+                            <th class="th-lg"><a (click)="sortBy('first')">Vendor Name<mdb-icon fas icon="sort"class="ml-1"></mdb-icon></a></th>
+                            <th class="th-lg"><a (click)="sortBy('first')">Location<mdb-icon fas icon="sort" class="ml-1">
+                                    </mdb-icon></a></th>
+                                    <th class="th-lg"><a (click)="sortBy('first')">Service<mdb-icon fas icon="sort"
+                                        class="ml-1"></mdb-icon></a></th>
+                            <th class="th-lg"><a (click)="sortBy('first')">Contact Name<mdb-icon fas icon="sort" class="ml-1">
+                                    </mdb-icon></a></th>
+                           
+                            <th class="th-lg"><a (click)="sortBy('first')">Department<mdb-icon fas icon="sort" class="ml-1">
+                                    </mdb-icon></a></th>
+                            <th class="th-lg"><a (click)="sortBy('first')">Email<mdb-icon fas icon="sort" class="ml-1">
+                                    </mdb-icon></a></th>
+                                    <th class="th-lg"><a (click)="sortBy('first')">Phone<mdb-icon fas icon="sort" class="ml-1">
+                                        </mdb-icon></a></th>
+    
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                    <tbody>
+                        <!--Table body-->
+                        <tr *ngFor="let vendorContact of vendorContacts | async | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
+                            <th scope="row">
+                            </th>
+                            <!-- <td>{{purchaseDet.pdId}}</td> -->
+                            <td>{{vendorContact.vName}}</td>
+                            <td>{{vendorContact.vLocation}}</td>
+                            <td>{{vendorContact.cpName}}</td>
+                            <td>{{vendorContact.vService}}</td>
+                            <td>{{vendorContact.cpDepartment}}</td>
+                            <td>{{vendorContact.cpEmail}}</td>
+                            <td>{{vendorContact.cpPhone}}</td>
+                            <td>
+                                
+                                <!-- <button type="button" (click)=updateVendor(vendor.vId) mdbBtn color="green"
+                                    outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                    <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+                                </button> -->
+                                <!-- <button type="button" (click)=deleteContact(contact.cpId)
+                                     mdbBtn color="red" outline="true"
+                                    rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                    <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+                                </button> -->
+                                <!-- <button type="button" (click)=VendorContactDetails(vendorContact.cpId) mdbBtn color="black"
+                                    outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                    <mdb-icon fas icon="info" class="mt-0"></mdb-icon>
+                                </button> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            </div>
+           <div>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+        </div>
+    </mdb-card>
+    

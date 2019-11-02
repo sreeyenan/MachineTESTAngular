@@ -1,0 +1,114 @@
+
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header info-color white-text">
+          <h4 class="title">
+              <i class="fa fa-pencil-alt"></i>Edit Vendor Details</h4>
+            </div>
+<!--Body-->
+<div class="modal-body" [hidden]="submitted" >
+  <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+
+    <!-- Vendor name -->
+
+    <div class="form-group">
+      <label for="name"> Vendor Name</label>
+      <input type="text" class="form-control" formControlName="vName" #vName [(ngModel)]="vendor.vName" />
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['vName'].invalid && (angForm.controls['vName'].dirty || angForm.controls['vName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['vName'].errors.required">
+        Vendor Name is required.
+      </div>
+    </div>
+
+ <!-- Vendor Address-->
+
+
+
+ <div class="form-group">
+    <label class="col-md-4">Vendor Address </label>
+    <textarea class="form-control" rows = 4 cols = "5"
+    formControlName="vAddress" #vdAddress [(ngModel)]="vendor.vAddress"> </textarea>
+  </div>
+  <div *ngIf="angForm.controls['vAddress'].invalid && (angForm.controls['vAddress'].dirty || angForm.controls['vAddress'].touched)" class="alert alert-danger">
+    <div *ngIf="angForm.controls['vAddress'].errors.required">
+           
+    </div>
+    </div>
+
+    <!-- Location-->
+
+    <div class="form-group">
+        <label for="name">Location</label>
+        <div class="col-10">
+        <select formControlName="vLocation" class="form-control" required   #vPincode [(ngModel)]="vendor.vLocation">
+            <option value="" disabled>Select Location</option>                                                  
+           <option>Trivandrum</option>
+           <option>Chennai</option>
+           <option>Bangalore</option>
+        </select>
+       </div>
+   </div>
+
+                  <!-- Service -->
+
+                  <div class="form-group">
+                        <label for="name">Service</label>
+                        <input type="text" class="form-control" formControlName="vService" #vService [(ngModel)]="vendor.vService"/>
+                  
+                      </div>
+                  
+                      <div
+                        *ngIf="angForm.controls['vService'].invalid && (angForm.controls['vService'].dirty || angForm.controls['vService'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="angForm.controls['vService'].errors.required">
+                          Vendor Service is required.
+                        </div>
+                      </div>
+                  
+
+      <!-- Pincode -->
+
+  
+      <div class="form-group">
+            <label for="name">Pincode</label>
+            <input type="text" class="form-control" formControlName="vPincode" #vPincode [(ngModel)]="vendor.vPincode"/>
+      
+          </div>
+          <div
+            *ngIf="angForm.controls['vPincode'].invalid && (angForm.controls['vPincode'].dirty || angForm.controls['vPincode'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['vPincode'].errors.required">
+                    Pincode is required.
+            </div>
+          </div>
+
+
+  
+    <!-- submit -->
+
+
+    <div class="text-center mt-4 mb-2">
+        <button  type="button" (click)="list()" mdbBtn color="black"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+          <mdb-icon fas icon="arrow-circle-left" class="mt-0"></mdb-icon>
+            
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" mdbBtn color="green"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+            <mdb-icon fas icon="plus" class="mt-0"></mdb-icon>
+      
+          </button>
+      </div>
+  
+</form>
+
+</div>
