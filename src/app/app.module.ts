@@ -32,7 +32,6 @@ import { HomeuserComponent } from './homeuser/homeuser.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    
     HomeComponent,
     
     ListVendorComponent,
